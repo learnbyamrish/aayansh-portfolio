@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Aayansh Singh | Web Developer & Security Expert</title>
     
     <!-- Font Awesome Icons -->
@@ -33,7 +33,6 @@
             --border: 1px solid rgba(37, 99, 235, 0.2);
             --transition: all 0.3s ease;
             --nav-bg: rgba(15, 23, 42, 0.9);
-            --nav-hover: #3b82f6;
         }
 
         .light-mode {
@@ -53,6 +52,8 @@
             line-height: 1.6;
             transition: var(--transition);
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         /* Background Effect */
@@ -70,15 +71,15 @@
             z-index: -1;
         }
 
-        /* ========== LEFT SIDE SOCIAL ICONS (VERTICAL) ========== */
+        /* ========== LEFT SIDE SOCIAL ICONS ========== */
         .left-social {
             position: fixed;
-            left: 20px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             z-index: 100;
         }
 
@@ -94,30 +95,9 @@
             font-size: 20px;
             transition: var(--transition);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
         }
 
-        .left-social a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transition: var(--transition);
-            transform: skewX(-45deg);
-        }
-
-        .left-social a:hover::before {
-            left: 100%;
-        }
-
-        .left-social a:hover {
-            transform: translateX(5px) scale(1.1);
-        }
-
+        .left-social a:hover { transform: translateX(5px) scale(1.1); }
         .left-social .whatsapp { background: #25D366; }
         .left-social .instagram { background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5); }
         .left-social .telegram { background: #0088cc; }
@@ -136,9 +116,9 @@
             left: 55px;
             background: var(--primary);
             color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
@@ -152,18 +132,18 @@
             left: 60px;
         }
 
-        /* ========== NAVIGATION BAR - UNIQUE DESIGN ========== */
+        /* ========== NAVIGATION ========== */
         nav {
             position: fixed;
-            top: 20px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
             max-width: 1200px;
             background: var(--nav-bg);
             backdrop-filter: blur(15px);
-            padding: 12px 30px;
-            border-radius: 60px;
+            padding: 12px 25px;
+            border-radius: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -171,13 +151,7 @@
             border: 2px solid transparent;
             border-image: var(--gradient);
             border-image-slice: 1;
-            box-shadow: var(--shadow), 0 0 20px rgba(37, 99, 235, 0.3);
-            animation: navGlow 3s infinite alternate;
-        }
-
-        @keyframes navGlow {
-            0% { box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.3); }
-            100% { box-shadow: 0 10px 40px -5px rgba(124, 58, 237, 0.6); }
+            box-shadow: var(--shadow);
         }
 
         .logo {
@@ -187,33 +161,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             cursor: pointer;
-            position: relative;
-            padding: 5px 10px;
-            letter-spacing: -0.5px;
-            transition: var(--transition);
         }
 
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            opacity: 0.1;
-            border-radius: 30px;
-            transition: var(--transition);
-        }
-
-        .logo:hover::before {
-            opacity: 0.2;
-            transform: scale(1.05);
-        }
-
+        /* Desktop Navigation */
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -221,56 +174,17 @@
             color: var(--light);
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            transition: var(--transition);
-            cursor: pointer;
+            font-size: 14px;
             padding: 8px 16px;
             border-radius: 40px;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
-            border: 1px solid transparent;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
             transition: var(--transition);
-            z-index: -1;
-            border-radius: 40px;
-        }
-
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
-            left: 0;
+            cursor: pointer;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: white;
-            border-color: transparent;
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
             background: var(--gradient);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 70%;
+            color: white;
         }
 
         .toggle-btn {
@@ -281,47 +195,90 @@
             font-weight: 600;
             color: white;
             border: none;
-            transition: var(--transition);
             font-size: 14px;
-            margin-left: 10px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
+            margin-left: 5px;
         }
 
-        .toggle-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        /* ===== HAMBURGER MENU ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--light);
+            margin: 3px 0;
             transition: var(--transition);
+            border-radius: 2px;
         }
 
-        .toggle-btn:hover::before {
-            left: 100%;
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+            border: 2px solid transparent;
+            border-image: var(--gradient);
+            border-image-slice: 1;
         }
 
-        .toggle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px var(--primary);
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            text-align: center;
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: var(--gradient);
+            color: white;
         }
 
         /* ========== MAIN CONTENT ========== */
         main {
             min-height: 100vh;
-            padding-top: 100px;
-            padding-bottom: 60px;
-            margin-left: 80px; /* Space for left social icons */
-            margin-right: 20px;
+            padding: 100px 15px 50px 75px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .page {
@@ -329,9 +286,7 @@
             animation: fadeIn 0.5s ease;
         }
 
-        .page.active-page {
-            display: block;
-        }
+        .page.active-page { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -340,27 +295,12 @@
 
         .page-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .page-header h1 {
-            font-size: 42px;
+            font-size: clamp(28px, 5vw, 42px);
             font-weight: 800;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .page-header h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
         }
 
         .page-header h1 span {
@@ -369,43 +309,17 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .page-header p {
-            color: var(--gray);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 20px auto 0;
-        }
-
-        /* ========== BUTTONS ========== */
+        /* ===== BUTTONS ===== */
         .btn {
             padding: 12px 30px;
             border-radius: 40px;
             font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             font-size: 15px;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: var(--transition);
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            left: 100%;
+            display: inline-block;
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -414,10 +328,7 @@
             box-shadow: 0 10px 20px -5px var(--primary);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px var(--primary);
-        }
+        .btn-primary:hover { transform: translateY(-3px); }
 
         .btn-outline {
             border: 2px solid var(--primary);
@@ -430,7 +341,7 @@
             color: white;
         }
 
-        /* ========== HOME PAGE ========== */
+        /* ===== HOME PAGE - ORIGINAL HERO SECTION ===== */
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -480,12 +391,6 @@
             margin-top: 5px;
         }
 
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
         .hero-image img {
             width: 100%;
             max-width: 380px;
@@ -504,7 +409,7 @@
             transform: scale(1.02);
         }
 
-        /* ========== ABOUT PAGE ========== */
+        /* ===== ABOUT PAGE ===== */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -532,11 +437,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .about-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
         .info-list {
             margin: 30px 0;
         }
@@ -559,7 +459,7 @@
             color: var(--primary);
         }
 
-        /* ========== SKILLS PAGE ========== */
+        /* ===== SKILLS PAGE ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -573,24 +473,6 @@
             padding: 30px 25px;
             transition: var(--transition);
             backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.3);
         }
 
         .skill-icon {
@@ -603,16 +485,6 @@
             justify-content: center;
             font-size: 28px;
             color: white;
-            margin-bottom: 20px;
-        }
-
-        .skill-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .skill-card p {
-            color: var(--gray);
             margin-bottom: 20px;
         }
 
@@ -631,7 +503,7 @@
             border: 1px solid rgba(37, 99, 235, 0.2);
         }
 
-        /* ========== PROJECTS PAGE ========== */
+        /* ===== PROJECTS PAGE ===== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -646,27 +518,10 @@
             transition: var(--transition);
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.3);
-        }
-
         .project-image {
             width: 100%;
             height: 200px;
             overflow: hidden;
-            position: relative;
-        }
-
-        .project-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
         }
 
         .project-image img {
@@ -689,52 +544,26 @@
             margin-bottom: 8px;
         }
 
-        .project-info p {
-            color: var(--gray);
-            margin-bottom: 12px;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .project-tech span {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 11px;
-        }
-
-        /* ========== GALLERY PAGE - WITH VIEW MORE ========== */
+        /* ===== GALLERY PAGE - 5 PHOTOS + VIEW MORE ===== */
         .gallery-container {
-            margin-top: 40px;
+            margin-top: 30px;
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
             margin-bottom: 30px;
         }
         
         .gallery-item {
             position: relative;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 3/4; /* Optimized for 3060x4080 photos */
+            aspect-ratio: 3/4;
             cursor: pointer;
-            border: 3px solid rgba(37, 99, 235, 0.2);
+            border: 2px solid rgba(37, 99, 235, 0.2);
             transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.03);
-            border-color: var(--primary);
-            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.4);
         }
         
         .gallery-item img {
@@ -744,8 +573,13 @@
             transition: transform 0.5s;
         }
         
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+        
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .gallery-overlay {
@@ -753,8 +587,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 10px;
             transform: translateY(100%);
             transition: transform 0.3s;
             color: white;
@@ -764,55 +598,33 @@
             transform: translateY(0);
         }
         
-        .gallery-overlay p {
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .gallery-overlay small {
-            font-size: 11px;
-            opacity: 0.8;
-        }
-        
-        /* Hidden gallery items (for View More) */
         .gallery-item.hidden {
             display: none;
         }
         
-        /* View More button */
         .view-more-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         
         .view-more-btn {
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 12px 35px;
+            padding: 12px 30px;
             border-radius: 40px;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px -5px var(--primary);
             font-size: 16px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            transition: var(--transition);
         }
         
         .view-more-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px var(--primary);
-        }
-        
-        .view-more-btn i {
-            transition: var(--transition);
-        }
-        
-        .view-more-btn:hover i {
-            transform: translateX(5px);
+            box-shadow: 0 10px 20px -5px var(--primary);
         }
         
         /* Lightbox */
@@ -827,7 +639,7 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
+            padding: 20px;
         }
         
         .lightbox.active {
@@ -837,9 +649,9 @@
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
+            object-fit: contain;
             border-radius: 10px;
             border: 3px solid var(--primary);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
         }
         
         .lightbox-close {
@@ -857,14 +669,55 @@
             transform: rotate(90deg);
         }
 
-        /* ========== CONTACT PAGE ========== */
+        /* ===== CV SECTION ===== */
+        .cv-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: var(--border);
+        }
+
+        .cv-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cv-section h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cv-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .cv-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary);
+        }
+
+        /* ===== CONTACT PAGE - ACTIVE ICONS ===== */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             background: var(--card-bg);
             border: var(--border);
-            border-radius: 30px;
+            border-radius: 20px;
             padding: 40px;
             backdrop-filter: blur(10px);
         }
@@ -878,10 +731,6 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .contact-details {
-            margin: 30px 0;
         }
 
         .contact-item {
@@ -901,17 +750,18 @@
             justify-content: center;
             color: white;
             font-size: 20px;
+            flex-shrink: 0;
         }
 
-        .contact-text h4 {
-            font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 3px;
-        }
-
-        .contact-text p {
+        .contact-text p a {
+            color: var(--light);
+            text-decoration: none;
             font-size: 16px;
             font-weight: 600;
+        }
+
+        .contact-text p a:hover {
+            color: var(--primary);
         }
 
         .contact-form {
@@ -928,19 +778,11 @@
         .form-group textarea {
             width: 100%;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.03);
             border: 2px solid rgba(37, 99, 235, 0.2);
-            border-radius: 10px;
+            border-radius: 8px;
             color: var(--light);
             font-size: 15px;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(37, 99, 235, 0.05);
         }
 
         .form-group label {
@@ -979,36 +821,41 @@
             box-shadow: var(--shadow);
         }
 
-        /* ========== FOOTER ========== */
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        /* ===== FOOTER - VERTICAL QUICK LINKS ===== */
         footer {
             background: var(--card-bg);
             border-top: var(--border);
-            padding: 50px 0 25px;
-            margin-left: 80px; /* Space for left social icons */
+            padding: 50px 15px 25px;
+            margin-left: 75px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 30px;
         }
 
         .footer-logo {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .footer-social {
             display: flex;
             gap: 12px;
-            margin-top: 15px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
 
@@ -1032,9 +879,15 @@
             transform: translateY(-3px);
         }
 
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+
         .footer-links h4 {
             margin-bottom: 15px;
             font-size: 18px;
+            color: var(--light);
         }
 
         .footer-links ul {
@@ -1042,37 +895,44 @@
         }
 
         .footer-links li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
             color: var(--gray);
             text-decoration: none;
             transition: var(--transition);
-            font-size: 14px;
+            font-size: 15px;
             cursor: pointer;
+            display: inline-block;
         }
 
         .footer-links a:hover {
             color: var(--primary);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 25px;
+            padding-top: 30px;
+            margin-top: 30px;
             border-top: var(--border);
             color: var(--gray);
+            font-size: 14px;
             max-width: 1200px;
-            margin: 25px auto 0;
-            font-size: 13px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* ========== FLOATING CALL BUTTON ========== */
+        .copyright i {
+            color: #ef4444;
+        }
+
+        /* ===== CALL BUTTON ===== */
         .btn-call {
             position: fixed;
-            left: 20px;
-            bottom: 20px;
+            left: 15px;
+            bottom: 15px;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -1083,9 +943,8 @@
             color: white;
             text-decoration: none;
             font-size: 22px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite;
             z-index: 100;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -1093,86 +952,168 @@
             70% { box-shadow: 0 0 0 15px rgba(239,68,68,0); }
         }
 
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1024px) {
-            main {
-                margin-left: 70px;
+        /* ===== RESPONSIVE - PHONE FIXES ===== */
+        
+        /* Tablet and below */
+        @media (max-width: 991px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            
+            /* Phone me left corner 3 lines, right corner name */
+            nav {
+                flex-direction: row-reverse;
+                padding: 10px 20px;
             }
-            footer {
-                margin-left: 70px;
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .hamburger {
+                margin-right: auto;
             }
         }
 
+        /* Mobile (max-width: 768px) */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            /* Left icons adjust */
             .left-social { left: 10px; }
-            .left-social a { width: 40px; height: 40px; font-size: 18px; }
-            main { margin-left: 60px; }
+            .left-social a { width: 38px; height: 38px; font-size: 18px; }
+            .left-social a::after { display: none; }
+            
+            main { padding-left: 60px; }
             footer { margin-left: 60px; }
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            
+            /* Grids single column */
+            .hero-content,
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            
             .hero-text p { margin-left: auto; margin-right: auto; }
             .hero-stats { justify-content: center; }
             .btn-group { justify-content: center; }
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .contact-container { grid-template-columns: 1fr; padding: 25px; }
-            .footer-content { grid-template-columns: 1fr; gap: 25px; }
             .info-item { justify-content: center; }
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+            
+            /* Image sizes */
+            .hero-image img { max-width: 260px; }
+            .about-image img { max-width: 260px; }
+            
+            /* Footer vertical links with border */
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .footer-links {
+                border: 1px solid rgba(37, 99, 235, 0.3);
+                border-radius: 15px;
+                padding: 20px;
+            }
+            
+            .footer-social { justify-content: center; }
+            
+            /* Gallery - 3 photos per row */
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
         }
 
+        /* Small Phone (max-width: 480px) */
         @media (max-width: 480px) {
-            .hero-text h1 { font-size: 32px; }
-            .page-header h1 { font-size: 28px; }
+            .left-social { left: 5px; gap: 8px; }
+            .left-social a { width: 32px; height: 32px; font-size: 14px; }
+            
+            main { padding-left: 45px; }
+            footer { margin-left: 45px; }
+            
+            .hero-image img { max-width: 200px; }
+            .about-image img { max-width: 200px; }
+            
+            .hero-text h1 { font-size: 28px; }
+            .page-header h1 { font-size: 24px; }
             .hero-stats { gap: 15px; }
-            .stat-item h3 { font-size: 22px; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .left-social { display: none; } /* Hide on mobile to save space */
-            main { margin-left: 10px; }
-            footer { margin-left: 10px; }
+            .stat-item h3 { font-size: 20px; }
+            
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .btn { width: 100%; max-width: 200px; }
+            
+            .contact-item { flex-direction: column; text-align: center; }
+            .contact-icon { margin-bottom: 5px; }
+            
+            .footer-links { padding: 15px; }
+        }
+
+        /* Very Small Phone */
+        @media (max-width: 360px) {
+            .left-social { display: none; }
+            main { padding-left: 15px; }
+            footer { margin-left: 15px; }
+            .hero-image img { max-width: 160px; }
+            .about-image img { max-width: 160px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- ========== LEFT SIDE SOCIAL ICONS (VERTICAL) ========== -->
+    <!-- LEFT SOCIAL ICONS -->
     <div class="left-social">
-        <a href="https://wa.me/916201440407" target="_blank" class="whatsapp" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/aayanshsingh.official?igsh=MWxoNHp4Z3l1YzRwMw==" target="_blank" class="instagram" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://t.me/aayanshsingh_official" target="_blank" class="telegram" title="Telegram">
-            <i class="fab fa-telegram"></i>
-        </a>
-        <!-- FACEBOOK ICON ADDED HERE -->
-        <a href="https://www.facebook.com/share/1CTfptQXTJ/" target="_blank" class="facebook" title="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://github.com/learnbyamrish" target="_blank" class="github" title="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/learnbyamrish" target="_blank" class="linkedin" title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
+        <a href="https://wa.me/916201440407" target="_blank" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/aayanshsingh.official?igsh=MWxoNHp4Z3l1YzRwMw==" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/aayanshsingh_official" target="_blank" class="telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.facebook.com/share/1CTfptQXTJ/" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://github.com/learnbyamrish" target="_blank" class="github" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/learnbyamrish" target="_blank" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav>
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="logo" onclick="window.open('https://github.com/learnbyamrish', '_blank')">Aayansh Singh</div>
+        
+        <!-- Desktop Navigation -->
         <div class="nav-links">
             <a onclick="showPage('home')" class="nav-item active">Home</a>
             <a onclick="showPage('about')" class="nav-item">About</a>
             <a onclick="showPage('skills')" class="nav-item">Skills</a>
             <a onclick="showPage('projects')" class="nav-item">Projects</a>
             <a onclick="showPage('gallery')" class="nav-item">Gallery</a>
+            <a onclick="showPage('cv-section')" class="nav-item">CV</a>
             <a onclick="showPage('contact')" class="nav-item">Contact</a>
             <button class="toggle-btn" onclick="toggleMode()">🌓</button>
         </div>
     </nav>
 
-    <!-- Main Content - All Pages -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a onclick="showPage('home')" class="nav-item">Home</a>
+        <a onclick="showPage('about')" class="nav-item">About</a>
+        <a onclick="showPage('skills')" class="nav-item">Skills</a>
+        <a onclick="showPage('projects')" class="nav-item">Projects</a>
+        <a onclick="showPage('gallery')" class="nav-item">Gallery</a>
+        <a onclick="showPage('cv-section')" class="nav-item">CV</a>
+        <a onclick="showPage('contact')" class="nav-item">Contact</a>
+        <a onclick="toggleMode()" style="background: var(--gradient); color: white;">🌓 Dark/Light</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
     <main>
-        <!-- ========== HOME PAGE ========== -->
+        <!-- HOME PAGE (Original) -->
         <div id="home" class="page active-page">
             <div class="container">
                 <div class="hero-content">
@@ -1181,18 +1122,9 @@
                         <p>I build secure, modern, and high-performance web applications with clean UI and robust security.</p>
                         
                         <div class="hero-stats">
-                            <div class="stat-item">
-                                <h3>3+</h3>
-                                <p>Years Exp.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>20+</h3>
-                                <p>Projects</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>10+</h3>
-                                <p>Clients</p>
-                            </div>
+                            <div class="stat-item"><h3>3+</h3><p>Years</p></div>
+                            <div class="stat-item"><h3>20+</h3><p>Projects</p></div>
+                            <div class="stat-item"><h3>10+</h3><p>Clients</p></div>
                         </div>
                         
                         <div class="btn-group">
@@ -1208,41 +1140,21 @@
             </div>
         </div>
 
-        <!-- ========== ABOUT PAGE ========== -->
+        <!-- ABOUT PAGE -->
         <div id="about" class="page">
             <div class="container">
-                <div class="page-header">
-                    <h1>About <span>Me</span></h1>
-                    <p>Get to know the person behind the code</p>
-                </div>
-                
+                <div class="page-header"><h1>About <span>Me</span></h1></div>
                 <div class="about-grid">
-                    <div class="about-image">
-                        <img src="profile.jpg" alt="Aayansh Singh" onerror="this.src='https://via.placeholder.com/400x500?text=Photo'">
-                    </div>
-                    
+                    <div class="about-image"><img src="profile.jpg" alt="Aayansh Singh" onerror="this.src='https://via.placeholder.com/400x500?text=Photo'"></div>
                     <div class="about-content">
                         <h2>Who is <span>Aayansh Singh?</span></h2>
-                        <p>I'm a passionate web developer with a strong focus on cybersecurity. With over 3 years of experience, I specialize in building secure, scalable web applications that combine beautiful design with robust security practices.</p>
-                        <p>My journey in web development started with a curiosity about how websites work. Today, I help businesses and individuals create digital solutions that are not only visually appealing but also protected against modern cyber threats.</p>
+                        <p>I'm a passionate web developer with a strong focus on cybersecurity. With over 3 years of experience, I specialize in building secure, scalable web applications.</p>
                         
                         <div class="info-list">
-                            <div class="info-item">
-                                <div class="info-icon"><i class="fas fa-user"></i></div>
-                                <div class="info-text">Name: Aayansh Singh</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <div class="info-text">Location: Bikram, Bihar</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                                <div class="info-text">Email: learnbyamrish@gmail.com</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i class="fas fa-phone"></i></div>
-                                <div class="info-text">Phone: +91 6201440407</div>
-                            </div>
+                            <div class="info-item"><div class="info-icon"><i class="fas fa-user"></i></div><div class="info-text">Aayansh Singh</div></div>
+                            <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="info-text">Bikram, Bihar</div></div>
+                            <div class="info-item"><div class="info-icon"><i class="fas fa-envelope"></i></div><div class="info-text">learnbyamrish@gmail.com</div></div>
+                            <div class="info-item"><div class="info-icon"><i class="fas fa-phone"></i></div><div class="info-text">+91 6201440407</div></div>
                         </div>
                         
                         <button class="btn btn-primary" onclick="showPage('contact')">Let's Talk</button>
@@ -1251,394 +1163,132 @@
             </div>
         </div>
 
-        <!-- ========== SKILLS PAGE ========== -->
+        <!-- SKILLS PAGE -->
         <div id="skills" class="page">
             <div class="container">
-                <div class="page-header">
-                    <h1>My <span>Skills</span></h1>
-                    <p>Technologies and tools I work with</p>
-                </div>
-                
+                <div class="page-header"><h1>My <span>Skills</span></h1></div>
                 <div class="skills-grid">
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fas fa-code"></i></div>
-                        <h3>Frontend Development</h3>
-                        <p>Building responsive interfaces with modern frameworks.</p>
+                        <h3>Frontend</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">HTML5</span>
                             <span class="skill-tag">CSS3</span>
                             <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">React</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">Tailwind</span>
                         </div>
                     </div>
-                    
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fas fa-server"></i></div>
-                        <h3>Backend Development</h3>
-                        <p>Creating robust APIs and server applications.</p>
+                        <h3>Backend</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Express</span>
                             <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">REST API</span>
                         </div>
                     </div>
-                    
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Web Security</h3>
-                        <p>Implementing security best practices.</p>
+                        <h3>Security</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">OWASP</span>
-                            <span class="skill-tag">JWT Auth</span>
-                            <span class="skill-tag">HTTPS/SSL</span>
-                            <span class="skill-tag">XSS Prevention</span>
-                            <span class="skill-tag">CSRF</span>
-                            <span class="skill-tag">Encryption</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-tools"></i></div>
-                        <h3>Dev Tools</h3>
-                        <p>Tools that streamline development.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">npm/yarn</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <h3>Responsive Design</h3>
-                        <p>Perfect on all devices.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Mobile-First</span>
-                            <span class="skill-tag">Flexbox</span>
-                            <span class="skill-tag">CSS Grid</span>
-                            <span class="skill-tag">Media Queries</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-rocket"></i></div>
-                        <h3>Performance</h3>
-                        <p>Optimizing for speed.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Lighthouse</span>
-                            <span class="skill-tag">Lazy Loading</span>
-                            <span class="skill-tag">Caching</span>
-                            <span class="skill-tag">Minification</span>
+                            <span class="skill-tag">JWT</span>
+                            <span class="skill-tag">HTTPS</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ========== PROJECTS PAGE ========== -->
+        <!-- PROJECTS PAGE -->
         <div id="projects" class="page">
             <div class="container">
-                <div class="page-header">
-                    <h1>My <span>Projects</span></h1>
-                    <p>Real-world applications I've built</p>
-                </div>
-                
+                <div class="page-header"><h1>My <span>Projects</span></h1></div>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Banking Dashboard">
-                        </div>
-                        <div class="project-info">
-                            <h3>Secure Banking Dashboard</h3>
-                            <p>Financial dashboard with real-time updates and multi-factor authentication.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                                <span>JWT</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Project"></div>
+                        <div class="project-info"><h3>Banking App</h3></div>
                     </div>
-                    
                     <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" alt="E-Commerce">
-                        </div>
-                        <div class="project-info">
-                            <h3>E-Commerce Platform</h3>
-                            <p>Full-featured e-commerce platform with payment integration.</p>
-                            <div class="project-tech">
-                                <span>Next.js</span>
-                                <span>Stripe</span>
-                                <span>Prisma</span>
-                                <span>PostgreSQL</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" alt="Project"></div>
+                        <div class="project-info"><h3>E-Commerce</h3></div>
                     </div>
-                    
                     <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500" alt="Portfolio">
-                        </div>
-                        <div class="project-info">
-                            <h3>Portfolio Website</h3>
-                            <p>Modern portfolio with dark/light mode and smooth animations.</p>
-                            <div class="project-tech">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                                <span>GSAP</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500" alt="Security Tool">
-                        </div>
-                        <div class="project-info">
-                            <h3>Security Scanner</h3>
-                            <p>Web vulnerability scanner that checks for common security issues.</p>
-                            <div class="project-tech">
-                                <span>Node.js</span>
-                                <span>Express</span>
-                                <span>OWASP</span>
-                                <span>Puppeteer</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=500" alt="Task Manager">
-                        </div>
-                        <div class="project-info">
-                            <h3>Task Manager App</h3>
-                            <p>Collaborative task management with real-time updates.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Firebase</span>
-                                <span>Tailwind</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500" alt="Weather App">
-                        </div>
-                        <div class="project-info">
-                            <h3>Weather Dashboard</h3>
-                            <p>Weather app with location detection and forecast.</p>
-                            <div class="project-tech">
-                                <span>JavaScript</span>
-                                <span>API</span>
-                                <span>CSS3</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500" alt="Project"></div>
+                        <div class="project-info"><h3>Portfolio</h3></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ========== GALLERY PAGE - WITH VIEW MORE ========== -->
+        <!-- GALLERY PAGE - 5 Photos + View More -->
         <div id="gallery" class="page">
             <div class="container">
-                <div class="page-header">
-                    <h1>My <span>Gallery</span></h1>
-                    <p>20+ moments and work snapshots</p>
-                </div>
+                <div class="page-header"><h1>My <span>Gallery</span></h1></div>
                 
                 <div class="gallery-container">
-                    <!-- GALLERY GRID - 5 PHOTOS VISIBLE FIRST, REST HIDDEN -->
                     <div class="gallery-grid" id="galleryGrid">
                         <!-- Photo 1 -->
                         <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500')">
                             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" alt="Coding Setup">
-                            <div class="gallery-overlay">
-                                <p>Coding Setup</p>
-                                <small>Workspace</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Coding Setup</p></div>
                         </div>
                         
                         <!-- Photo 2 -->
                         <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500')">
                             <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500" alt="Code">
-                            <div class="gallery-overlay">
-                                <p>Night Coding</p>
-                                <small>Development</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Night Coding</p></div>
                         </div>
                         
-                        <!-- Photo 3 - Bikram -->
+                        <!-- Photo 3 -->
                         <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1620122300531-ee2a9b4e30ea?w=500')">
                             <img src="https://images.unsplash.com/photo-1620122300531-ee2a9b4e30ea?w=500" alt="Bikram">
-                            <div class="gallery-overlay">
-                                <p>Bikram, Bihar</p>
-                                <small>My Hometown</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Bikram, Bihar</p></div>
                         </div>
                         
                         <!-- Photo 4 -->
                         <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500')">
                             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Project">
-                            <div class="gallery-overlay">
-                                <p>Banking Project</p>
-                                <small>Work</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Banking Project</p></div>
                         </div>
                         
                         <!-- Photo 5 -->
                         <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500')">
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" alt="E-commerce">
-                            <div class="gallery-overlay">
-                                <p>E-Commerce</p>
-                                <small>Project</small>
-                            </div>
+                            <div class="gallery-overlay"><p>E-Commerce</p></div>
                         </div>
                         
-                        <!-- Photo 6 - HIDDEN INITIALLY -->
+                        <!-- Photo 6 - HIDDEN (View More ke baad dikhega) -->
                         <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500')">
                             <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500" alt="Portfolio">
-                            <div class="gallery-overlay">
-                                <p>Portfolio</p>
-                                <small>Design</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Portfolio</p></div>
                         </div>
                         
-                        <!-- Photo 7 - HIDDEN INITIALLY -->
+                        <!-- Photo 7 - HIDDEN -->
                         <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500')">
                             <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500" alt="Mobile">
-                            <div class="gallery-overlay">
-                                <p>Mobile Design</p>
-                                <small>UI/UX</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Mobile Design</p></div>
                         </div>
                         
-                        <!-- Photo 8 - HIDDEN INITIALLY -->
+                        <!-- Photo 8 - HIDDEN -->
                         <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500')">
                             <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500" alt="Laptop">
-                            <div class="gallery-overlay">
-                                <p>MacBook</p>
-                                <small>Setup</small>
-                            </div>
+                            <div class="gallery-overlay"><p>MacBook</p></div>
                         </div>
                         
-                        <!-- Photo 9 - HIDDEN INITIALLY -->
+                        <!-- Photo 9 - HIDDEN -->
                         <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1522252234503-e356532cafd5?w=500')">
                             <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?w=500" alt="Code Screen">
-                            <div class="gallery-overlay">
-                                <p>Coding Screen</p>
-                                <small>Work</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Coding Screen</p></div>
                         </div>
                         
-                        <!-- Photo 10 - HIDDEN INITIALLY -->
+                        <!-- Photo 10 - HIDDEN -->
                         <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=500')">
                             <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=500" alt="Desk">
-                            <div class="gallery-overlay">
-                                <p>Desk Setup</p>
-                                <small>Workspace</small>
-                            </div>
+                            <div class="gallery-overlay"><p>Desk Setup</p></div>
                         </div>
                         
-                        <!-- Photo 11 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500')">
-                            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500" alt="Server">
-                            <div class="gallery-overlay">
-                                <p>Server Room</p>
-                                <small>Infrastructure</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 12 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500')">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500" alt="Team">
-                            <div class="gallery-overlay">
-                                <p>Team Meeting</p>
-                                <small>Collaboration</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 13 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500')">
-                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500" alt="Coding">
-                            <div class="gallery-overlay">
-                                <p>Coding Session</p>
-                                <small>Work</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 14 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1504639725590-34d0984388b5?w=500')">
-                            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388b5?w=500" alt="Laptop">
-                            <div class="gallery-overlay">
-                                <p>Laptop Setup</p>
-                                <small>Workspace</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 15 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500')">
-                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500" alt="Code">
-                            <div class="gallery-overlay">
-                                <p>Code Editor</p>
-                                <small>VS Code</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 16 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500')">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Analytics">
-                            <div class="gallery-overlay">
-                                <p>Dashboard</p>
-                                <small>Analytics</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 17 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500')">
-                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500" alt="Security">
-                            <div class="gallery-overlay">
-                                <p>Cybersecurity</p>
-                                <small>Security</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 18 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500')">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" alt="Setup">
-                            <div class="gallery-overlay">
-                                <p>Dream Setup</p>
-                                <small>Workspace</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 19 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500')">
-                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500" alt="Code">
-                            <div class="gallery-overlay">
-                                <p>JavaScript</p>
-                                <small>Code</small>
-                            </div>
-                        </div>
-                        
-                        <!-- Photo 20 - HIDDEN INITIALLY -->
-                        <div class="gallery-item hidden" onclick="openLightbox('https://images.unsplash.com/photo-1620122300531-ee2a9b4e30ea?w=500')">
-                            <img src="https://images.unsplash.com/photo-1620122300531-ee2a9b4e30ea?w=500" alt="Bihar">
-                            <div class="gallery-overlay">
-                                <p>Bihar</p>
-                                <small>Location</small>
-                            </div>
-                        </div>
+                        <!-- Photo 11-20 - Aap baad mein add kar sakte ho -->
                     </div>
                     
                     <!-- VIEW MORE BUTTON -->
@@ -1650,7 +1300,7 @@
                     </div>
                 </div>
                 
-                <!-- Lightbox Container -->
+                <!-- Lightbox -->
                 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
                     <span class="lightbox-close">&times;</span>
                     <img id="lightbox-img" src="" alt="">
@@ -1658,25 +1308,36 @@
             </div>
         </div>
 
-        <!-- ========== CONTACT PAGE ========== -->
+        <!-- CV SECTION -->
+        <div id="cv-section" class="page">
+            <div class="container">
+                <div class="cv-section">
+                    <h2>Download My <span>Curriculum Vitae</span></h2>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Get my complete professional experience and qualifications</p>
+                    
+                    <!-- CV Download Button -->
+                    <a href="cv.pdf" download class="cv-btn">
+                        <i class="fas fa-download"></i> Download CV (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE - ACTIVE ICONS -->
         <div id="contact" class="page">
             <div class="container">
-                <div class="page-header">
-                    <h1>Get In <span>Touch</span></h1>
-                    <p>Let's discuss your next project</p>
-                </div>
+                <div class="page-header"><h1>Get In <span>Touch</span></h1></div>
                 
                 <div class="contact-container">
                     <div class="contact-info">
                         <h3>Let's <span>Work Together</span></h3>
-                        <p>Have a project in mind? I'm always excited to take on new challenges.</p>
                         
                         <div class="contact-details">
                             <div class="contact-item">
                                 <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                                 <div class="contact-text">
                                     <h4>Phone</h4>
-                                    <p>+91 6201440407</p>
+                                    <p><a href="tel:+916201440407">+91 6201440407</a></p>
                                 </div>
                             </div>
                             
@@ -1684,16 +1345,15 @@
                                 <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                                 <div class="contact-text">
                                     <h4>Email</h4>
-                                    <p>learnbyamrish@gmail.com</p>
+                                    <p><a href="mailto:learnbyamrish@gmail.com">learnbyamrish@gmail.com</a></p>
                                 </div>
                             </div>
                             
-                            <!-- LOCATION ICON -->
                             <div class="contact-item">
                                 <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div class="contact-text">
                                     <h4>Location</h4>
-                                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 5px;"></i> The Singh Villa, Bikram, Bihar</p>
+                                    <p><a href="https://www.google.com/maps/place/Bikram,+Bihar" target="_blank">Bikram, Bihar</a></p>
                                 </div>
                             </div>
                         </div>
@@ -1708,31 +1368,16 @@
                         </div>
                     </div>
                     
-                    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Email Address</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="subject" required>
-                            <label for="subject">Subject</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! I\'ll reply soon.');">
+                        <div class="form-group"><input type="text" required><label>Your Name</label></div>
+                        <div class="form-group"><input type="email" required><label>Your Email</label></div>
+                        <div class="form-group"><input type="text" required><label>Subject</label></div>
+                        <div class="form-group"><textarea rows="4" required></textarea><label>Message</label></div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
                 
+                <!-- MAP - SATELLITE VIEW -->
                 <div class="map-container">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115135.67835089205!2d84.98038055!3d25.59090555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2b7f8a5c3b3b3%3A0x8e7b3b3b3b3b3b3b!2sBikram%2C%20Bihar!5e0!3m2!1sen!2sin!4v1645012345678!5m2!1sen!2sin"
@@ -1747,7 +1392,7 @@
         </div>
     </main>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div>
@@ -1763,6 +1408,7 @@
                 </div>
             </div>
             
+            <!-- QUICK LINKS - VERTICAL -->
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
@@ -1771,6 +1417,7 @@
                     <li><a onclick="showPage('skills')">Skills</a></li>
                     <li><a onclick="showPage('projects')">Projects</a></li>
                     <li><a onclick="showPage('gallery')">Gallery</a></li>
+                    <li><a onclick="showPage('cv-section')">CV</a></li>
                     <li><a onclick="showPage('contact')">Contact</a></li>
                 </ul>
             </div>
@@ -1789,21 +1436,22 @@
                 <ul>
                     <li><a href="tel:+916201440407">+91 6201440407</a></li>
                     <li><a href="mailto:learnbyamrish@gmail.com">learnbyamrish@gmail.com</a></li>
-                    <li><a>The Singh Villa, Bikram, Bihar</a></li>
+                    <li><a>Bikram, Bihar</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&copy; 2026 Aayansh Singh. All rights reserved. | Made with <i class="fas fa-heart" style="color: #ef4444;"></i> in India</p>
+            <p>&copy; 2026 Aayansh Singh. All rights reserved. | Made with <i class="fas fa-heart"></i> in India</p>
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
+    <!-- CALL BUTTON -->
     <a href="tel:+916201440407" class="btn-call"><i class="fas fa-phone"></i></a>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // ========== GALLERY VIEW MORE FUNCTION ==========
+        // Gallery View More
         let galleryExpanded = false;
         
         function toggleGallery() {
@@ -1811,119 +1459,57 @@
             const viewMoreBtn = document.getElementById('viewMoreBtn');
             
             if (!galleryExpanded) {
-                // Show all hidden items
-                hiddenItems.forEach(item => {
-                    item.style.display = 'block';
-                });
+                hiddenItems.forEach(item => item.style.display = 'block');
                 viewMoreBtn.innerHTML = '<span>Show Less</span> <i class="fas fa-arrow-up"></i>';
                 galleryExpanded = true;
             } else {
-                // Hide all hidden items again
-                hiddenItems.forEach(item => {
-                    item.style.display = 'none';
-                });
+                hiddenItems.forEach(item => item.style.display = 'none');
                 viewMoreBtn.innerHTML = '<span>View More Photos</span> <i class="fas fa-arrow-down"></i>';
                 galleryExpanded = false;
             }
         }
 
-        // ========== LIGHTBOX FOR GALLERY ==========
-        function openLightbox(imageSrc) {
-            document.getElementById('lightbox-img').src = imageSrc;
-            document.getElementById('lightbox').classList.add('active');
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Escape key se lightbox band karo
-        document.addEventListener('keydown', function(e) {
-            if(e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-        
-        // ========== PAGE NAVIGATION ==========
+        // Page Navigation
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active-page');
-            });
-            
-            // Show selected page
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
             document.getElementById(pageId).classList.add('active-page');
             
-            // Update active nav link
-            document.querySelectorAll('.nav-item').forEach(link => {
+            document.querySelectorAll('.nav-links a, #mobileMenu a').forEach(link => {
                 link.classList.remove('active');
-            });
-            
-            // Find and activate correct nav link
-            document.querySelectorAll('.nav-item').forEach(link => {
-                if(link.textContent.toLowerCase() === pageId) {
+                if(link.textContent.toLowerCase().includes(pageId) || 
+                   (pageId === 'cv-section' && link.textContent.toLowerCase().includes('cv'))) {
                     link.classList.add('active');
                 }
             });
             
-            // Scroll to top
+            document.querySelector('.hamburger').classList.remove('active');
+            document.getElementById('mobileMenu').classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Reset gallery view when leaving gallery page
-            if (pageId !== 'gallery' && galleryExpanded) {
-                galleryExpanded = false;
-            }
         }
 
-        // ========== DARK/LIGHT MODE ==========
-        function toggleMode() {
-            document.body.classList.toggle('light-mode');
-            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        // Lightbox
+        function openLightbox(src) { 
+            document.getElementById('lightbox-img').src = src; 
+            document.getElementById('lightbox').classList.add('active'); 
+        }
+        function closeLightbox() { 
+            document.getElementById('lightbox').classList.remove('active'); 
+        }
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
+        // Dark Mode
+        function toggleMode() { 
+            document.body.classList.toggle('light-mode'); 
         }
 
-        // Load saved theme
         window.addEventListener('load', () => {
-            if(localStorage.getItem('theme') === 'light') {
-                document.body.classList.add('light-mode');
-            }
-            
-            // Set home page as active by default
             showPage('home');
-            
-            // Initially hide all hidden gallery items
-            document.querySelectorAll('.gallery-item.hidden').forEach(item => {
-                item.style.display = 'none';
-            });
-        });
-
-        // ========== NAVBAR SCROLL EFFECT ==========
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if(window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 15, 30, 0.95)';
-                nav.style.backdropFilter = 'blur(15px)';
-            } else {
-                nav.style.background = 'rgba(10, 15, 30, 0.9)';
-                nav.style.backdropFilter = 'blur(10px)';
-            }
-        });
-
-        // ========== FORM HANDLING ==========
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            document.getElementById('contactForm').reset();
-        }
-
-        // ========== ACTIVE LINK FROM FOOTER ==========
-        document.querySelectorAll('.footer-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const text = this.textContent.toLowerCase();
-                if(['home', 'about', 'skills', 'projects', 'gallery', 'contact'].includes(text)) {
-                    e.preventDefault();
-                    showPage(text);
-                }
-            });
         });
     </script>
 </body>
